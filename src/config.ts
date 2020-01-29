@@ -32,6 +32,7 @@ export type Config = {
     host: string
     width: number;
     height: number;
+    waitUntil: 'networkidle0' | 'networkidle2';
     headers: { [key: string]: string };
 };
 
@@ -43,6 +44,7 @@ export class ConfigManager {
         host: '0.0.0.0',
         width: 1000,
         height: 1000,
+        waitUntil: 'networkidle0',
         headers: {}
     };
 
