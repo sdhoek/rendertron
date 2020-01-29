@@ -164,7 +164,7 @@ export class Renderer {
         injectBaseHref, `${parsedUrl.protocol}//${parsedUrl.host}`);
 
     // Serialize page.
-    const result = await page.evaluate('document.firstElementChild.outerHTML');
+    const result = await page.evaluate('document.firstElementChild.outerHTML') as string;
 
     await page.close();
     return {status: statusCode, customHeaders: customHeaders ? new Map(JSON.parse(customHeaders)) : new Map(), content: result};
@@ -191,7 +191,7 @@ export class Renderer {
     try {
       // Navigate to page. Wait until there are no oustanding network requests.
       response =
-          await page.goto(url, {timeout: 10000, waitUntil: 'networkidle0'});
+          await page.goto(url, {timeout: this.config.timeout, waitUntil: 'networkidle0'});
     } catch (e) {
       console.error(e);
     }
