@@ -230,6 +230,7 @@ test('endpont for invalidating memory cache works if configured', async (t) => {
     host: '0.0.0.0',
     width: 1000,
     height: 1000,
+    waitUntil: 'networkidle0',
     headers: {},
     puppeteerArgs: ['--no-sandbox']
   };
@@ -273,6 +274,7 @@ test('endpont for invalidating filesystem cache works if configured', async (t) 
     host: '0.0.0.0',
     width: 1000,
     height: 1000,
+    waitUntil: 'networkidle0',
     headers: {},
     puppeteerArgs: ['--no-sandbox']
   };
